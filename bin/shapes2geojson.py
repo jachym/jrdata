@@ -39,7 +39,7 @@ def makejson(reader):
         }
 
         sequence = list(shape['coordinates'].keys())
-        sequence.sort()
+        #sequence.sort()
         for point in sequence:
             feature['geometry']['coordinates'].append(shape['coordinates'][point])
 

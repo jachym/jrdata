@@ -31,3 +31,18 @@ https://datastory.cz/dpp/foia/2015/10/20/informace-zpusobuji-silenstvi.html
 3. ogr2ogr -f GeoJSON json/stops.geojson vrts/stops.vrt
 
 výsledek: https://github.com/jachym/jrdata/blob/master/jsons/stops.geojson
+
+
+## Převod shapes.txt na GeoJSON a zobrazení v mapě
+
+1. vezmi skript v `bin/shapes2geojson.py`
+2. Použij
+
+```Bash
+
+python3 bin/shapes2geojson.py > jsons/shapes.geojson
+
+```
+
+Viz https://github.com/jachym/jrdata/blob/master/jsons/shapes.geojson
+
