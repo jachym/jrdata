@@ -1,2 +1,25 @@
 # jrdata
 Jízdní řády z Dopravního podniku hlavního města Praha
+
+Staženo z FTP serveru Dopravního podniku
+
+ftp://ftp.dpp.cz/
+
+jrdata
+jrdata15
+
+## Převod na json
+
+1. Přejmenovat `soubor.txt` na `soubor.csv`
+2. vytvořit soubor `*.vrt`, kterým popíšte vstupní CSV soubor::
+    
+    <OGRVRTDataSource>
+            <OGRVRTLayer name="stops">
+                <SrcDataSource>orig-data/stops.csv</SrcDataSource>
+                <GeometryType>wkbPoint</GeometryType>
+                <LayerSRS>WGS84</LayerSRS>
+                <GeometryField encoding="PointFromColumns" x="stop_lon" y="stop_lat"/>
+            </OGRVRTLayer>
+    </OGRVRTDataSource>
+
+3. ogr2ogr -f GeoJSON json/stops.json vrts/stops.vrt
