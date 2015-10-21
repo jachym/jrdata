@@ -17,10 +17,9 @@ def makejson(reader):
                 'coordinates': {
                 }
             }
-        shapes[shapeid]['coordinates'][
-            rec['shape_pt_sequence']] = [float(rec['shape_pt_lon']),
-                                         float(rec['shape_pt_lat'])]
-
+        seq = int(rec['shape_pt_sequence']) 
+        shapes[shapeid]['coordinates'][seq] = [float(rec['shape_pt_lon']),
+                                               float(rec['shape_pt_lat'])]
     fc = { "type": "FeatureCollection",
         "features": []
     }
@@ -38,9 +37,7 @@ def makejson(reader):
           }
         }
 
-        sequence = list(shape['coordinates'].keys())
-        sequence.sort()
-        for point in sequence:
+        for point in shape['coordinates']:
             feature['geometry']['coordinates'].append(shape['coordinates'][point])
 
         fc['features'].append(feature)
