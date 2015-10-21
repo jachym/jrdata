@@ -17,7 +17,7 @@ https://datastory.cz/dpp/foia/2015/10/20/informace-zpusobuji-silenstvi.html
 
 1. Přejmenovat `soubor.txt` na `soubor.csv`
 2. vytvořit soubor `*.vrt`, kterým popíšte vstupní CSV soubor::
-    
+```xml 
     <OGRVRTDataSource>
             <OGRVRTLayer name="stops">
                 <SrcDataSource>orig-data/stops.csv</SrcDataSource>
@@ -26,6 +26,7 @@ https://datastory.cz/dpp/foia/2015/10/20/informace-zpusobuji-silenstvi.html
                 <GeometryField encoding="PointFromColumns" x="stop_lon" y="stop_lat"/>
             </OGRVRTLayer>
     </OGRVRTDataSource>
+```
 
 3. ogr2ogr -f GeoJSON json/stops.geojson vrts/stops.vrt
 
